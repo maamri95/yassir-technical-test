@@ -16,7 +16,7 @@ describe('http-client', () => {
 
   describe('request', () => {
     it('should return mocked data', async () => {
-      const data = await httpClient.request('GET', 'url', { params: { delay: 1000 } });
+      const data = await httpClient.request('GET', 'url', { params: { delay: "1000" } });
       expect(data).toEqual({ data: 'mocked data' });
     });
 
@@ -36,7 +36,7 @@ describe('http-client', () => {
           PUT: httpClient.put.bind(httpClient),
         } as const
         const requestSpy = vi.spyOn(httpClient, 'request');
-        expect(methods[method]('url', {})).resolves.toBeTruthy();
+        expect(methods[method]('url', {} as BodyInit)).resolves.toBeTruthy();
         expect(requestSpy).toBeCalledWith(method, 'url', {body: {}});
       });
     }

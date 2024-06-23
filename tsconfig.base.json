@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "contracts": ["contracts/src/index.ts"]
+      "contracts": ["contracts/src/index.ts"],
+      "fetch-http-client": ["infra/http-client/fetch-http-client/src/index.ts"],
+      "ky-http-client": ["infra/http-client/ky-http-client/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

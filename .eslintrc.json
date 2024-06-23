@@ -6,6 +6,12 @@
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "rules": {
+        "@nx/dependency-checks": [
+            "error",
+            {
+              "checkVersionMismatches": false
+            }
+        ],
         "@nx/enforce-module-boundaries": [
           "error",
           {
@@ -15,6 +21,22 @@
               {
                 "sourceTag": "*",
                 "onlyDependOnLibsWithTags": ["*"]
+              },
+              {
+                "sourceTag": "scope:infra",
+                "onlyDependOnLibsWithTags": ["scope:infra", "scope:contract", "scope:domain"]
+              },
+              {
+                "sourceTag": "scope:contract",
+                "onlyDependOnLibsWithTags": ["scope:contract"]
+              },
+              {
+                "sourceTag": "scope:domain",
+                "onlyDependOnLibsWithTags": ["scope:contract", "scope:domain"]
+              },
+              {
+                "sourceTag": "scope:application",
+                "onlyDependOnLibsWithTags": ["scope:infra", "scope:domain"]
               }
             ]
           }

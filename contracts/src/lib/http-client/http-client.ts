@@ -5,11 +5,11 @@ export abstract class HttpClient {
     return this.request<T>('GET', url, options);
   }
 
-  public post<T>(url: string, body: unknown, options?: HttpClientOptions): Promise<T> {
+  public post<T>(url: string, body: BodyInit, options?: HttpClientOptions): Promise<T> {
     return this.request<T>('POST', url, { ...options, body });
   }
 
-  public put<T>(url: string, body: unknown, options?: HttpClientOptions): Promise<T> {
+  public put<T>(url: string, body: BodyInit, options?: HttpClientOptions): Promise<T> {
     return this.request<T>('PUT', url, { ...options, body });
   }
 
@@ -29,9 +29,9 @@ export abstract class HttpClient {
 
 export interface HttpClientOptions {
   headers?: Record<string, string>;
-  params?: Record<string, unknown>;
+  params?: Record<string, string>;
 }
 
-export type HttpClientOptionsWithBody = HttpClientOptions & {body?: unknown};
+export type HttpClientOptionsWithBody = HttpClientOptions & {body?: BodyInit};
 
 export type HttpClientMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';

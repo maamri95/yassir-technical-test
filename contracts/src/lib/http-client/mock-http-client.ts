@@ -30,13 +30,16 @@ export class MockHttpClient extends HttpClient {
     override async request<T>(method: HttpClientMethod, url: string, options?: HttpClientOptionsWithBody) {
         return new Promise<T>((resolve, reject) => {
             setTimeout(() => {
-                if (options?.params?.['error']) {
-                    reject(new errors[options.params['error'] as keyof typeof errors]());
+                const errorParam = options?.params?.['error'];
+                if (errorParam) {
+                    if (errorParam in errors) {
+                        reject(new errors[errorParam as unknown as keyof typeof errors]());
+                    }
                 }
                 resolve(options?.params?.["data"] as T ?? {
                     data: 'mocked data',
                 } as unknown as T);
-            }, options?.params?.["delay"] as number ?? 0);
+            }, parseInt(options?.params?.["delay"] ?? "0", 10));
         });
     }
 }
