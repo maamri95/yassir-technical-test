@@ -1,13 +1,13 @@
 import {beforeAll, describe, expect, vi} from "vitest";
 import {errors} from "./http-client-error";
 import {HttpClient} from "./http-client";
-import {MockHttpClient} from "./mock-http-client";
+import {HttpClientMock} from "./http-client.mock";
 
 
 describe('http-client', () => {
   let httpClient: HttpClient;
   beforeAll(() => {
-    httpClient = new MockHttpClient();
+    httpClient = new HttpClientMock();
   });
 
   it('should be defined', () => {

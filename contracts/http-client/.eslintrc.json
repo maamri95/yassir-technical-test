@@ -1,5 +1,5 @@
 {
-  "extends": ["../.eslintrc.json"],
+  "extends": ["../../.eslintrc.json"],
   "ignorePatterns": ["!**/*", "node_modules/**/*"],
   "overrides": [
     {
@@ -21,7 +21,6 @@
         "@nx/dependency-checks": [
           "error",
           {
-            "checkVersionMismatches": false,
             "ignoredFiles": ["{projectRoot}/vite.config.{js,ts,mjs,mts}"]
           }
         ]

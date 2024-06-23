@@ -1,5 +1,5 @@
 import { FetchHttpClient } from './fetch.http-client';
-import {HttpClient} from "contracts";
+import {HttpClient} from "http-client";
 import { beforeEach, Mock} from "vitest";
 
 describe('fetchHttpClient', () => {

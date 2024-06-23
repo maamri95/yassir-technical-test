@@ -23,10 +23,10 @@ import {errors} from "./http-client-error";
  * console.log(data); // resolve after 1s with { data: 'mocked data' }
  * ```
  * @category HTTP Client
- * @class MockHttpClient
+ * @class HttpClientMock
  * @extends HttpClient
  */
-export class MockHttpClient extends HttpClient {
+export class HttpClientMock extends HttpClient {
     override async request<T>(method: HttpClientMethod, url: string, options?: HttpClientOptionsWithBody) {
         return new Promise<T>((resolve, reject) => {
             setTimeout(() => {

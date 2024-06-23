@@ -1,4 +1,4 @@
-import {errors, HttpClient, HttpClientError, HttpClientMethod, HttpClientOptionsWithBody} from "contracts";
+import {errors, HttpClient, HttpClientError, HttpClientMethod, HttpClientOptionsWithBody} from "http-client";
 import ky, {Options} from "ky";
 
 export class KyHttpClient extends HttpClient{

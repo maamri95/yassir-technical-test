@@ -1,4 +1,4 @@
-import {errors, HttpClient, HttpClientError, HttpClientMethod, HttpClientOptionsWithBody} from "contracts";
+import {errors, HttpClient, HttpClientError, HttpClientMethod, HttpClientOptionsWithBody} from "http-client";
 
 export class FetchHttpClient extends HttpClient {
   constructor(

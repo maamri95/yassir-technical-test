@@ -1,0 +1,26 @@
+{
+  "name": "http-client",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "contracts/http-client/src",
+  "projectType": "library",
+  "tags": ["scope:contract", "type:http-client"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/contracts/http-client",
+        "main": "contracts/http-client/src/index.ts",
+        "tsConfig": "contracts/http-client/tsconfig.lib.json",
+        "assets": ["contracts/http-client/*.md"]
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "../../coverage/contracts/http-client"
+      }
+    }
+  }
+}

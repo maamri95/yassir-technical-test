@@ -2,4 +2,4 @@ packages:
   - 'applications/**'
   - 'domains/**'
   - 'infra/**'
-  - 'contracts'
+  - 'contracts/**'
