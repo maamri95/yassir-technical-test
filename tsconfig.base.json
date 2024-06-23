@@ -17,7 +17,8 @@
     "paths": {
       "fetch-http-client": ["infra/http-client/fetch-http-client/src/index.ts"],
       "http-client": ["contracts/http-client/src/index.ts"],
-      "ky-http-client": ["infra/http-client/ky-http-client/src/index.ts"]
+      "ky-http-client": ["infra/http-client/ky-http-client/src/index.ts"],
+      "parser": ["contracts/parser/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
