@@ -1,0 +1,26 @@
+{
+  "name": "luxon-date-provider",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "infra/date-provider/luxon-date-provider/src",
+  "projectType": "library",
+  "tags": ["scope:infra", "type:date-provider", "lib:luxon"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/infra/date-provider/luxon-date-provider",
+        "main": "infra/date-provider/luxon-date-provider/src/index.ts",
+        "tsConfig": "infra/date-provider/luxon-date-provider/tsconfig.lib.json",
+        "assets": ["infra/date-provider/luxon-date-provider/*.md"]
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "../../../coverage/infra/date-provider/luxon-date-provider"
+      }
+    }
+  }
+}

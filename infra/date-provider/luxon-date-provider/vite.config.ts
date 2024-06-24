@@ -4,7 +4,8 @@ import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 export default defineConfig({
   root: __dirname,
-  cacheDir: '../../node_modules/.vite/contracts/date-provider',
+  cacheDir:
+    '../../../node_modules/.vite/infra/date-provider/luxon-date-provider',
 
   plugins: [nxViteTsPaths()],
 
@@ -20,7 +21,8 @@ export default defineConfig({
     include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     reporters: ['default'],
     coverage: {
-      reportsDirectory: '../../coverage/contracts/date-provider',
+      reportsDirectory:
+        '../../../coverage/infra/date-provider/luxon-date-provider',
       provider: 'v8',
       reporter: ['html', "json", "text"],
     },
