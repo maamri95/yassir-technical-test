@@ -24,7 +24,8 @@
         "infra/date-provider/luxon-date-provider/src/index.ts"
       ],
       "parser": ["contracts/parser/src/index.ts"],
-      "storage": ["contracts/storage/src/index.ts"]
+      "storage": ["contracts/storage/src/index.ts"],
+      "web-storage": ["infra/storage/web-storage/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

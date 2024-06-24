@@ -3,7 +3,7 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "infra/parser/json-parser/src",
   "projectType": "library",
-  "tags": ["scope:infra", "type:parser", "format:json"],
+  "tags": ["scope:infra", "type:parser", "format:json", "platform:server", "platform:web", "platform:mobile"],
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",

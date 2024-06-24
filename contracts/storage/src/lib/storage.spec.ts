@@ -4,10 +4,10 @@ import {StorageMock} from "./storage.mock";
 
 describe('storage', () => {
   let storage: Storage;
-  let store: Map<string, unknown>;
+  let store: Map<string, string>;
 
   beforeEach(() => {
-    store = new Map<string, unknown>();
+    store = new Map<string, string>();
     storage = new StorageMock(store)
   });
 

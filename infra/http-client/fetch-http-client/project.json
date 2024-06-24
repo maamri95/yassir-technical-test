@@ -3,7 +3,7 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "infra/http-client/fetch-http-client/src",
   "projectType": "library",
-  "tags": ["scope:infra", "type:http-client"],
+  "tags": ["scope:infra", "type:http-client", "platform:server", "platform:mobile", "platform:web", "lib:fetch"],
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",

@@ -1,16 +1,14 @@
 import { Storage } from './storage';
 export class StorageMock extends Storage {
-    constructor(private readonly storage: Map<string, unknown>) {
+    constructor(private readonly storage: Map<string, string>) {
         super();
     }
 
-    public async get<T>(key: string): Promise<T | null> {
-        return new Promise((resolve) => {
-            resolve(this.storage.get(key) as T | null);
-        });
+    public async get(key: string): Promise<string | null> {
+        return Promise.resolve(this.storage.get(key) ?? null);
     }
 
-    public async set<T>(key: string, value: T): Promise<void> {
+    public async set(key: string, value: string): Promise<void> {
         return new Promise(
             (resolve) => {
                 this.storage.set(key, value);

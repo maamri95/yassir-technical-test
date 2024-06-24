@@ -1,0 +1,26 @@
+{
+  "name": "web-storage",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "infra/storage/web-storage/src",
+  "projectType": "library",
+  "tags": ["scope:infra", "type:storage", "platform:web"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/infra/storage/web-storage",
+        "main": "infra/storage/web-storage/src/index.ts",
+        "tsConfig": "infra/storage/web-storage/tsconfig.lib.json",
+        "assets": ["infra/storage/web-storage/*.md"]
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "../../../coverage/infra/storage/web-storage"
+      }
+    }
+  }
+}

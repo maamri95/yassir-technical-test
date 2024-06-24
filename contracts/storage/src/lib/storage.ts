@@ -1,7 +1,7 @@
 export abstract class Storage {
-    public abstract get<T>(key: string): Promise<T | null>;
+    public abstract get(key: string): Promise<string | null>;
 
-    public abstract set<T>(key: string, value: T): Promise<void>;
+    public abstract set(key: string, value: string): Promise<void>;
 
     public abstract remove(key: string): Promise<void>;
 
