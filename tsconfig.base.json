@@ -23,7 +23,8 @@
       "luxon-date-provider": [
         "infra/date-provider/luxon-date-provider/src/index.ts"
       ],
-      "parser": ["contracts/parser/src/index.ts"]
+      "parser": ["contracts/parser/src/index.ts"],
+      "storage": ["contracts/storage/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
