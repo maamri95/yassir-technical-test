@@ -1,12 +1,10 @@
 {
-  "name": "ky-http-client",
+  "name": "json-parser",
   "version": "0.0.1",
   "dependencies": {
     "tslib": "^2.3.0",
-    "ky": "^0.27.0",
     "vitest": "^1.3.1",
-    "http-client": "workspace:*",
-    "parser": "workspace:*"
+    "parser": "0.0.1"
   },
   "type": "module",
   "main": "./src/index.js",

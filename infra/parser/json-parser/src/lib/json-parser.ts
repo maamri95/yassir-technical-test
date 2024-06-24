@@ -1,0 +1,16 @@
+import {Parser} from "parser";
+
+export class JsonParser extends Parser {
+    public parse<T>(data: string): T {
+        return JSON.parse(data, this.reviver);
+    }
+
+    public stringify<T>(data: T): string {
+        return JSON.stringify(data);
+    }
+
+    private reviver(key: string, value: any) {
+        if (key === '__proto__') return undefined;
+        return value;
+    }
+}

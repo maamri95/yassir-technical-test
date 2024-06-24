@@ -83,6 +83,9 @@ importers:
       tslib:
         specifier: ^2.3.0
         version: 2.6.3
+      vitest:
+        specifier: ^1.3.1
+        version: 1.6.0(@types/node@18.16.9)(@vitest/ui@1.6.0)
 
   infra/http-client/fetch-http-client:
     dependencies:
@@ -104,6 +107,21 @@ importers:
       ky:
         specifier: ^0.27.0
         version: 0.27.0
+      parser:
+        specifier: workspace:*
+        version: link:../../../contracts/parser
+      tslib:
+        specifier: ^2.3.0
+        version: 2.6.3
+      vitest:
+        specifier: ^1.3.1
+        version: 1.6.0(@types/node@18.16.9)(@vitest/ui@1.6.0)
+
+  infra/parser/json-parser:
+    dependencies:
+      parser:
+        specifier: workspace:*
+        version: link:../../../contracts/parser
       tslib:
         specifier: ^2.3.0
         version: 2.6.3

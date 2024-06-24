@@ -49,7 +49,7 @@ describe('kyHttpClient', () => {
     beforeEach(() => {
         httpClient = new KyHttpClient(KyFactory.createInstance({
             prefixUrl: 'https://jsonplaceholder.typicode.com'
-        }));
+        }, JSON));
     });
 
     it('should request', async () => {

@@ -1,0 +1,26 @@
+{
+  "name": "json-parser",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "infra/parser/json-parser/src",
+  "projectType": "library",
+  "tags": ["scope:infra", "type:parser", "format:json"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/infra/parser/json-parser",
+        "main": "infra/parser/json-parser/src/index.ts",
+        "tsConfig": "infra/parser/json-parser/tsconfig.lib.json",
+        "assets": ["infra/parser/json-parser/*.md"]
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "../../../coverage/infra/parser/json-parser"
+      }
+    }
+  }
+}

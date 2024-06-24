@@ -1,12 +1,10 @@
 import ky, {Options} from "ky";
+import {Parser} from "parser";
 
 export class KyFactory {
-    static createInstance(config: Options) {
+    static createInstance(config: Options, parser: Parser) {
         return ky.create({
-            parseJson: (text) => JSON.parse(text, (key, value) => {
-                if (key === '__proto__') return undefined;
-                return value;
-            }),
+            parseJson: parser.parse,
             ...config
         });
     }
