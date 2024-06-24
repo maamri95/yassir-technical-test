@@ -1,4 +1,4 @@
-import {DateOptions, DateOptionsWithFormat, DateProvider, DateUnit} from "date-provider";
+import { DateOptions, DateOptionsWithFormat, DateProvider, DateUnit } from './date-provider';
 
 export class DateProviderMock extends DateProvider {
     constructor(private dateNow: Date) {
@@ -32,11 +32,12 @@ export class DateProviderMock extends DateProvider {
     }
 
     format(date: Date, options?: DateOptionsWithFormat): string {
-        return "";
+        if (!options?.format && !this.config.format) throw new Error('Format is required');
+        return `formatted ${date.toISOString()} with format ${options?.format ?? this.config.format}`;
     }
 
     formatDistanceToNow(date: Date, options?: DateOptions): string | null {
-        return "";
+        return `formatted distance to now ${date.toISOString()} with options ${options}`;
     }
 
     public hasSame(date: Date, dateToCompare: Date, unit: DateUnit): boolean {

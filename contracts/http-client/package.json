@@ -1,6 +1,9 @@
 {
   "name": "http-client",
   "version": "0.0.1",
+  "scripts": {
+    "test:ui": "vitest --ui"
+  },
   "dependencies": {
     "tslib": "^2.3.0",
     "vitest": "^1.3.1"
