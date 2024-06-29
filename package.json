@@ -10,7 +10,9 @@
     "graph": "nx graph"
   },
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "tsyringe": "^4.8.0"
+  },
   "devDependencies": {
     "@nx/eslint": "19.3.1",
     "@nx/eslint-plugin": "19.3.1",

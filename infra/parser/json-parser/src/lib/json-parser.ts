@@ -9,7 +9,7 @@ export class JsonParser extends Parser {
         return JSON.stringify(data);
     }
 
-    private reviver(key: string, value: any) {
+    private reviver(key: string, value: unknown) {
         if (key === '__proto__') return undefined;
         return value;
     }

@@ -1,0 +1,19 @@
+{
+  "name": "use-case",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "contracts/use-case/src",
+  "projectType": "library",
+  "tags": ["scope:contract", "type:use-case"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/contracts/use-case",
+        "main": "contracts/use-case/src/index.ts",
+        "tsConfig": "contracts/use-case/tsconfig.lib.json",
+        "assets": ["contracts/use-case/*.md"]
+      }
+    }
+  }
+}

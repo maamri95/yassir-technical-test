@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      tsyringe:
+        specifier: ^4.8.0
+        version: 4.8.0
     devDependencies:
       '@nx/eslint':
         specifier: 19.3.1
@@ -71,36 +75,29 @@ importers:
 
   contracts/date-provider:
     dependencies:
-      tslib:
-        specifier: ^2.3.0
-        version: 2.6.3
       vitest:
         specifier: ^1.3.1
         version: 1.6.0(@types/node@18.16.9)(@vitest/ui@1.6.0)
 
   contracts/http-client:
     dependencies:
-      tslib:
-        specifier: ^2.3.0
-        version: 2.6.3
       vitest:
         specifier: ^1.3.1
         version: 1.6.0(@types/node@18.16.9)(@vitest/ui@1.6.0)
 
   contracts/parser:
     dependencies:
-      tslib:
-        specifier: ^2.3.0
-        version: 2.6.3
       vitest:
         specifier: ^1.3.1
         version: 1.6.0(@types/node@18.16.9)(@vitest/ui@1.6.0)
 
   contracts/storage:
     dependencies:
-      tslib:
-        specifier: ^2.3.0
-        version: 2.6.3
+      vitest:
+        specifier: ^1.3.1
+        version: 1.6.0(@types/node@18.16.9)(@vitest/ui@1.6.0)
+
+  contracts/use-case: {}
 
   infra/date-provider/luxon-date-provider:
     dependencies:
@@ -110,9 +107,6 @@ importers:
       luxon:
         specifier: ^3.4.4
         version: 3.4.4
-      tslib:
-        specifier: ^2.3.0
-        version: 2.6.3
       vitest:
         specifier: ^1.3.1
         version: 1.6.0(@types/node@18.16.9)(@vitest/ui@1.6.0)
@@ -126,9 +120,6 @@ importers:
       http-client:
         specifier: workspace:*
         version: link:../../../contracts/http-client
-      tslib:
-        specifier: ^2.3.0
-        version: 2.6.3
       vitest:
         specifier: ^1.3.1
         version: 1.6.0(@types/node@18.16.9)(@vitest/ui@1.6.0)
@@ -144,9 +135,6 @@ importers:
       parser:
         specifier: workspace:*
         version: link:../../../contracts/parser
-      tslib:
-        specifier: ^2.3.0
-        version: 2.6.3
       vitest:
         specifier: ^1.3.1
         version: 1.6.0(@types/node@18.16.9)(@vitest/ui@1.6.0)
@@ -156,24 +144,18 @@ importers:
       parser:
         specifier: workspace:*
         version: link:../../../contracts/parser
-      tslib:
-        specifier: ^2.3.0
-        version: 2.6.3
       vitest:
         specifier: ^1.3.1
         version: 1.6.0(@types/node@18.16.9)(@vitest/ui@1.6.0)
 
-  infra/storage/local-storage:
-    dependencies:
-      tslib:
-        specifier: ^2.3.0
-        version: 2.6.3
-
   infra/storage/web-storage:
     dependencies:
-      tslib:
-        specifier: ^2.3.0
-        version: 2.6.3
+      storage:
+        specifier: workspace:*
+        version: link:../../../contracts/storage
+      vitest:
+        specifier: ^1.3.1
+        version: 1.6.0(@types/node@18.16.9)(@vitest/ui@1.6.0)
 
 packages:
 
@@ -2757,8 +2739,15 @@ packages:
     resolution: {integrity: sha512-NoZ4roiN7LnbKn9QqE1amc9DJfzvZXxF4xDavcOWt1BPkdx+m+0gJuPM+S0vCe7zTJMYUP0R8pO2XMr+Y8oLIg==}
     engines: {node: '>=6'}
 
+  tslib@1.14.1:
+    resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
+
   tslib@2.6.3:
     resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
+
+  tsyringe@4.8.0:
+    resolution: {integrity: sha512-YB1FG+axdxADa3ncEtRnQCFq/M0lALGLxSZeVNbTU8NqhOVc51nnv2CISTcvc1kyv6EGPtXVr0v6lWeDxiijOA==}
+    engines: {node: '>= 6.0.0'}
 
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
@@ -5895,7 +5884,13 @@ snapshots:
       minimist: 1.2.8
       strip-bom: 3.0.0
 
+  tslib@1.14.1: {}
+
   tslib@2.6.3: {}
+
+  tsyringe@4.8.0:
+    dependencies:
+      tslib: 1.14.1
 
   type-check@0.4.0:
     dependencies:

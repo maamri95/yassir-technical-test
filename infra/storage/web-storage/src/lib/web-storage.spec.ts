@@ -54,7 +54,6 @@ describe('webStorage', () => {
 
   describe('clear', () => {
     it('should call clear method of webStorage', async () => {
-      const f = vi.spyOn(webStorage, 'clear');
       await webStorageInstance.clear();
       expect(webStorage.clear).toHaveBeenCalled();
     });

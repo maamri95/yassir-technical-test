@@ -1,10 +1,7 @@
 {
-  "name": "web-storage",
+  "name": "use-case",
   "version": "0.0.1",
-  "dependencies": {
-    "vitest": "^1.3.1",
-    "storage": "workspace:*"
-  },
+  "dependencies": {},
   "type": "module",
   "main": "./src/index.js",
   "typings": "./src/index.d.ts",

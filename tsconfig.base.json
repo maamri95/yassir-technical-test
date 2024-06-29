@@ -25,6 +25,7 @@
       ],
       "parser": ["contracts/parser/src/index.ts"],
       "storage": ["contracts/storage/src/index.ts"],
+      "use-case": ["contracts/use-case/src/index.ts"],
       "web-storage": ["infra/storage/web-storage/src/index.ts"]
     }
   },
