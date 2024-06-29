@@ -1,5 +1,6 @@
 import {errors, HttpClient, HttpClientError, HttpClientMethod, HttpClientOptionsWithBody} from "http-client";
-
+import { injectable } from 'tsyringe';
+@injectable()
 export class FetchHttpClient extends HttpClient {
   constructor(
       private readonly baseUrl: string,

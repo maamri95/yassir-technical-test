@@ -1,10 +1,12 @@
+import "reflect-metadata";
 import { WebStorage } from './web-storage';
-import {beforeEach, describe, Mocked, vi} from "vitest";
-
+import { beforeAll, beforeEach, describe, Mocked, vi } from 'vitest';
+import {container} from 'tsyringe';
+import { StorageWebApi } from './storage-web-api';
 describe('webStorage', () => {
   let webStorage: Mocked<Storage>
   let webStorageInstance: WebStorage;
-  beforeEach(() => {
+  beforeAll(() => {
     webStorage = {
       length: 0,
       getItem: vi.fn(),
@@ -13,7 +15,10 @@ describe('webStorage', () => {
       clear: vi.fn(),
       key: vi.fn()
     } satisfies Storage
-    webStorageInstance = new WebStorage(webStorage);
+    container.register(StorageWebApi.name, {useValue: webStorage});
+  })
+  beforeEach(() => {
+    webStorageInstance = container.resolve(WebStorage)
   })
   it('should be define', () => {
     expect(webStorage).toBeDefined();

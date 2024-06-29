@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { LuxonDateProvider } from './luxon-date-provider';
 import {beforeAll, describe} from "vitest";
 

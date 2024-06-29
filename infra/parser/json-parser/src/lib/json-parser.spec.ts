@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { JsonParser } from './json-parser';
 import {beforeAll, describe} from "vitest";
 

@@ -11,7 +11,9 @@
   },
   "private": true,
   "dependencies": {
-    "tsyringe": "^4.8.0"
+    "reflect-metadata": "^0.2.2",
+    "tsyringe": "^4.8.0",
+    "tslib": "^2.6.3"
   },
   "devDependencies": {
     "@nx/eslint": "19.3.1",

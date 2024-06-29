@@ -1,5 +1,6 @@
 import {Parser} from "parser";
-
+import { injectable } from 'tsyringe';
+@injectable()
 export class JsonParser extends Parser {
     public parse<T>(data: string): T {
         return JSON.parse(data, this.reviver);

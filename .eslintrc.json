@@ -24,7 +24,7 @@
               },
               {
                 "sourceTag": "scope:infra",
-                "onlyDependOnLibsWithTags": ["scope:infra", "scope:contract", "scope:domain"]
+                "onlyDependOnLibsWithTags": ["scope:contract", "scope:domain"]
               },
               {
                 "sourceTag": "scope:contract",

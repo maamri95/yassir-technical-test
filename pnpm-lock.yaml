@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      reflect-metadata:
+        specifier: ^0.2.2
+        version: 0.2.2
+      tslib:
+        specifier: ^2.6.3
+        version: 2.6.3
       tsyringe:
         specifier: ^4.8.0
         version: 4.8.0
@@ -93,6 +99,9 @@ importers:
 
   contracts/storage:
     dependencies:
+      tslib:
+        specifier: ^2.6.3
+        version: 2.6.3
       vitest:
         specifier: ^1.3.1
         version: 1.6.0(@types/node@18.16.9)(@vitest/ui@1.6.0)
@@ -107,6 +116,15 @@ importers:
       luxon:
         specifier: ^3.4.4
         version: 3.4.4
+      reflect-metadata:
+        specifier: ^0.2.2
+        version: 0.2.2
+      tslib:
+        specifier: ^2.6.3
+        version: 2.6.3
+      tsyringe:
+        specifier: ^4.8.0
+        version: 4.8.0
       vitest:
         specifier: ^1.3.1
         version: 1.6.0(@types/node@18.16.9)(@vitest/ui@1.6.0)
@@ -120,6 +138,15 @@ importers:
       http-client:
         specifier: workspace:*
         version: link:../../../contracts/http-client
+      reflect-metadata:
+        specifier: ^0.2.2
+        version: 0.2.2
+      tslib:
+        specifier: ^2.6.3
+        version: 2.6.3
+      tsyringe:
+        specifier: ^4.8.0
+        version: 4.8.0
       vitest:
         specifier: ^1.3.1
         version: 1.6.0(@types/node@18.16.9)(@vitest/ui@1.6.0)
@@ -135,6 +162,15 @@ importers:
       parser:
         specifier: workspace:*
         version: link:../../../contracts/parser
+      reflect-metadata:
+        specifier: ^0.2.2
+        version: 0.2.2
+      tslib:
+        specifier: ^2.6.3
+        version: 2.6.3
+      tsyringe:
+        specifier: ^4.8.0
+        version: 4.8.0
       vitest:
         specifier: ^1.3.1
         version: 1.6.0(@types/node@18.16.9)(@vitest/ui@1.6.0)
@@ -144,15 +180,33 @@ importers:
       parser:
         specifier: workspace:*
         version: link:../../../contracts/parser
+      reflect-metadata:
+        specifier: ^0.2.2
+        version: 0.2.2
+      tslib:
+        specifier: ^2.6.3
+        version: 2.6.3
+      tsyringe:
+        specifier: ^4.8.0
+        version: 4.8.0
       vitest:
         specifier: ^1.3.1
         version: 1.6.0(@types/node@18.16.9)(@vitest/ui@1.6.0)
 
   infra/storage/web-storage:
     dependencies:
+      reflect-metadata:
+        specifier: ^0.2.2
+        version: 0.2.2
       storage:
         specifier: workspace:*
         version: link:../../../contracts/storage
+      tslib:
+        specifier: ^2.6.3
+        version: 2.6.3
+      tsyringe:
+        specifier: ^4.8.0
+        version: 4.8.0
       vitest:
         specifier: ^1.3.1
         version: 1.6.0(@types/node@18.16.9)(@vitest/ui@1.6.0)
@@ -2495,6 +2549,9 @@ packages:
   readable-stream@3.6.2:
     resolution: {integrity: sha512-9u/sniCrY3D5WdsERHzHE4G2YCXqoG5FTHUiCC4SIbr6XcLZBY05ya9EKjYek9O5xOAwjGq+1JdGBAS7Q9ScoA==}
     engines: {node: '>= 6'}
+
+  reflect-metadata@0.2.2:
+    resolution: {integrity: sha512-urBwgfrvVP/eAyXx4hluJivBKzuEbSQs9rKWCrCkbSxNv8mxPcUZKeuoF3Uy4mJl3Lwprp6yy5/39VWigZ4K6Q==}
 
   regenerate-unicode-properties@10.1.1:
     resolution: {integrity: sha512-X007RyZLsCJVVrjgEFVpLUTZwyOZk3oiL75ZcuYjlIWd6rNJtOjkBwQc5AsRrpbKVkxN6sklw/k/9m2jJYOf8Q==}
@@ -5637,6 +5694,8 @@ snapshots:
       inherits: 2.0.4
       string_decoder: 1.3.0
       util-deprecate: 1.0.2
+
+  reflect-metadata@0.2.2: {}
 
   regenerate-unicode-properties@10.1.1:
     dependencies:

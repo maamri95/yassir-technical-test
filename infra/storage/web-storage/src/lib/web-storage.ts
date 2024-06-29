@@ -1,6 +1,9 @@
-import {Storage as BaseStorage} from 'storage'
+import { Storage as BaseStorage } from 'storage';
+import { inject, injectable } from 'tsyringe';
+import { StorageWebApi } from './storage-web-api';
+@injectable()
 export class WebStorage extends BaseStorage {
-  constructor(private readonly storage: Storage) {
+  constructor(@inject(StorageWebApi.name) private readonly storage: StorageWebApi) {
     super();
   }
   clear(): Promise<void> {

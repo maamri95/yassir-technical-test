@@ -1,6 +1,7 @@
 import {errors, HttpClient, HttpClientError, HttpClientMethod, HttpClientOptionsWithBody} from "http-client";
 import ky, {Options} from "ky";
-
+import { injectable } from 'tsyringe';
+@injectable()
 export class KyHttpClient extends HttpClient{
   constructor(private readonly client: typeof ky) {
     super();

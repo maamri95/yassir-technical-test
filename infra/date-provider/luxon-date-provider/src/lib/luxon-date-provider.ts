@@ -1,6 +1,7 @@
 import {DateOptions, DateOptionsWithFormat, DateProvider, DateUnit} from "date-provider";
 import {DateTime} from "luxon";
-
+import { injectable } from 'tsyringe';
+@injectable()
 export class LuxonDateProvider extends DateProvider {
     now(): Date {
         return DateTime.now().toJSDate();

@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { FetchHttpClient } from './fetch.http-client';
 import {HttpClient} from "http-client";
 import { beforeEach, Mock} from "vitest";

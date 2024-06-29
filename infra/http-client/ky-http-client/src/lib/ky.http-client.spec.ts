@@ -1,7 +1,11 @@
+import "reflect-metadata";
 import { KyHttpClient } from './ky.http-client';
-import { beforeEach, describe, Mock} from "vitest";
+import { beforeAll, beforeEach, describe, Mock } from 'vitest';
 import ky from "ky";
 import {KyFactory} from "./ky.factory";
+import { container } from 'tsyringe';
+import { Parser } from 'parser';
+import { HttpClient } from 'http-client';
 
 describe('kyHttpClient', () => {
   describe('unit', () => {
@@ -45,11 +49,17 @@ describe('kyHttpClient', () => {
   });
 
   describe('integration', () => {
-    let httpClient: KyHttpClient;
+    let httpClient: HttpClient;
+    beforeAll(() => {
+        container.register('KyOption', {useValue: {prefixUrl: 'https://jsonplaceholder.typicode.com'}});
+        container.register(Parser.name, {useValue: JSON});
+        container.register<HttpClient>(HttpClient.name, {useFactory: () => {
+          const factory = container.resolve(KyFactory);
+          return new KyHttpClient(factory.createInstance());
+          }});
+    })
     beforeEach(() => {
-        httpClient = new KyHttpClient(KyFactory.createInstance({
-            prefixUrl: 'https://jsonplaceholder.typicode.com'
-        }, JSON));
+        httpClient = container.resolve<HttpClient>(HttpClient.name);
     });
 
     it('should request', async () => {
