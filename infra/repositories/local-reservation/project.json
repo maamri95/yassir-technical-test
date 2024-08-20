@@ -1,0 +1,26 @@
+{
+  "name": "@yassir-test/local-reservation",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "infra/repositories/local-reservation/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/infra/repositories/local-reservation",
+        "main": "infra/repositories/local-reservation/src/index.ts",
+        "tsConfig": "infra/repositories/local-reservation/tsconfig.lib.json",
+        "assets": ["infra/repositories/local-reservation/*.md"]
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "../../../coverage/infra/repositories/local-reservation"
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "name": "luxon-date-provider",
+  "name": "@yassir-test/luxon-date-provider",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "infra/date-provider/luxon-date-provider/src",
   "projectType": "library",

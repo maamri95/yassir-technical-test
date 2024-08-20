@@ -1,11 +1,8 @@
 {
-  "name": "@yassir-test/date-provider",
+  "name": "@yassir-test/transformer",
   "version": "0.0.1",
-  "scripts": {
-    "test:ui": "vitest --coverage --ui"
-  },
   "dependencies": {
-    "tslib": "^2.6.3"
+    "tslib": "^2.3.0"
   },
   "type": "module",
   "main": "./src/index.js",

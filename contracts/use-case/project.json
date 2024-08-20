@@ -1,5 +1,5 @@
 {
-  "name": "use-case",
+  "name": "@yassir-test/use-case",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "contracts/use-case/src",
   "projectType": "library",

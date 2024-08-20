@@ -1,0 +1,19 @@
+{
+  "name": "@yassir-test/transformer",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "contracts/transformer/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/contracts/transformer",
+        "main": "contracts/transformer/src/index.ts",
+        "tsConfig": "contracts/transformer/tsconfig.lib.json",
+        "assets": ["contracts/transformer/*.md"]
+      }
+    }
+  }
+}

@@ -1,7 +1,9 @@
 {
-  "name": "use-case",
+  "name": "@yassir-test/use-case",
   "version": "0.0.1",
-  "dependencies": {},
+  "dependencies": {
+    "tslib": "^2.6.3"
+  },
   "type": "module",
   "main": "./src/index.js",
   "typings": "./src/index.d.ts",

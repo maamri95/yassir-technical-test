@@ -1,5 +1,5 @@
 {
-  "name": "date-provider",
+  "name": "@yassir-test/date-provider",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "contracts/date-provider/src",
   "projectType": "library",
@@ -13,13 +13,6 @@
         "main": "contracts/date-provider/src/index.ts",
         "tsConfig": "contracts/date-provider/tsconfig.lib.json",
         "assets": ["contracts/date-provider/*.md"]
-      }
-    },
-    "test": {
-      "executor": "@nx/vite:test",
-      "outputs": ["{options.reportsDirectory}"],
-      "options": {
-        "reportsDirectory": "../../coverage/contracts/date-provider"
       }
     }
   }
