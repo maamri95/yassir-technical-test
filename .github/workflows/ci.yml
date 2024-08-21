@@ -100,10 +100,8 @@ jobs:
         with:
           node-version: 20
       - run: pnpm install
+      - run: pnpm add -g netlify-cli
       - run: pnpm nx run reservation-dashboard:build
 
       - name: Deploy to Netlify
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        run: npx netlify deploy --prod --dir=./dist/applications/reservation-dashboard
+        run: netlify deploy --prod --dir=./dist/applications/reservation-dashboard --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_API_TOKEN }}

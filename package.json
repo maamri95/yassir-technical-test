@@ -58,7 +58,7 @@
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "jsdom": "~22.1.0",
-    "netlify": "^13.1.21",
+    "netlify-cli": "^17.34.2",
     "nx": "19.6.1",
     "postcss": "8.4.38",
     "prettier": "^3.3.3",
