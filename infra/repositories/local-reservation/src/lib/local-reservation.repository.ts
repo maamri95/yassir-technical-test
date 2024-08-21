@@ -1,19 +1,28 @@
-import { Reservation, ReservationRepository, ReservationsOptions } from '@yassir-test/reservation';
+import {
+    Reservation,
+    ReservationKeys,
+    ReservationRepository,
+    ReservationsOptions,
+    ReservationSort
+} from '@yassir-test/reservation';
 import {inject, injectable} from "tsyringe";
 import {DateProvider} from "@yassir-test/date-provider";
 import {ReservationsResponseApiDto} from "./dto/reservations-response-api.dto";
 import { Transformer } from '@yassir-test/transformer';
 import { ReservationApiDto } from './dto/reservation-api.dto';
+import { ReservationApiToReservationTransformer } from './tranformers/reservation-api-to-reservation.transformer';
 @injectable()
 export class LocalReservationRepository extends ReservationRepository{
     constructor(
         @inject(DateProvider.name) private readonly dateProvider: DateProvider,
-        @inject(Transformer.name) private readonly reservationTransformer: Transformer<ReservationApiDto, Reservation>,
+        @inject(ReservationApiToReservationTransformer.name) private readonly reservationTransformer: Transformer<ReservationApiDto, Reservation>,
         @inject("LocalReservationData") private readonly apiReservations: ReservationsResponseApiDto,
+        @inject("LocalReservationTimeout") private readonly timeout: number
     ) {
         super();
     }
     async getReservations(options?: ReservationsOptions): Promise<Reservation[]> {
+        await new Promise(resolve => setTimeout(resolve, this.timeout));
         let response = this.apiReservations.reservations.map(reservation => this.reservationTransformer.transform(reservation));
         if (!options) {
             return response;
@@ -30,8 +39,14 @@ export class LocalReservationRepository extends ReservationRepository{
         if (options.shift) {
             response = this.filterByShift(response, options.shift);
         }
-        if (options.firstName || options.lastName) {
-            response = this.filterByNames(response, options.firstName, options.lastName);
+        if (options.firstName) {
+            response = this.filterByFirstName(response, options.firstName);
+        }
+        if (options.lastName) {
+            response = this.filterByLastName(response, options.lastName);
+        }
+        if (options.sort) {
+            response = this.sortReservations(response, options.sort);
         }
         return response;
     }
@@ -52,7 +67,24 @@ export class LocalReservationRepository extends ReservationRepository{
         return reservations.filter(reservation => reservation.shift === shift);
     }
 
-    private filterByNames(reservations: Reservation[], firstName="", lastName=""): Reservation[] {
-        return reservations.filter(reservation => reservation.customer.firstName.includes(firstName) || reservation.customer.lastName.includes(lastName));
+    private filterByFirstName(reservations: Reservation[], firstName=""): Reservation[] {
+        return reservations.filter(reservation => reservation.customer.firstName.includes(firstName));
+    }
+    private filterByLastName(reservations: Reservation[], lastName=""): Reservation[] {
+        return reservations.filter(reservation => reservation.customer.lastName.includes(lastName));
+    }
+
+    private sortReservations(response: Reservation[], sort: ReservationSort) {
+        const sortKey: ReservationKeys = sort.replace('-', '') as ReservationKeys;
+        if (sortKey === 'firstName' || sortKey === 'lastName') {
+            if (sort.startsWith('-')) {
+                return response.sort((a, b) => a.customer[sortKey] > b.customer[sortKey] ? -1 : 1);
+            }
+            return response.sort((a, b) => a.customer[sortKey] > b.customer[sortKey] ? 1 : -1);
+        }
+        if (sort.startsWith('-')) {
+            return response.sort((a, b) => a[sortKey] > b[sortKey] ? -1 : 1);
+        }
+        return response.sort((a, b) => a[sortKey] > b[sortKey] ? 1 : -1);
     }
 }

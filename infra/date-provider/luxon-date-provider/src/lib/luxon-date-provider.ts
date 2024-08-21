@@ -10,4 +10,8 @@ export class LuxonDateProvider extends DateProvider {
         }
         return dateInDateTime >= DateTime.fromJSDate(start) && dateInDateTime <= DateTime.fromJSDate(end);
     }
+
+    format(date: Date, format: string): string {
+        return DateTime.fromJSDate(date).toFormat(format);
+    }
 }

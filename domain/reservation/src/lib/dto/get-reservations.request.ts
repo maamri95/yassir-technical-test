@@ -1,6 +1,7 @@
-import {ReservationStatus} from "../entities/reservation-status.ts";
-import {ReservationShift} from "../entities/reservation-shift.ts";
-import {ReservationArea} from "../entities/reservation-area.ts";
+import {ReservationStatus} from "../entities/reservation-status";
+import {ReservationShift} from "../entities/reservation-shift";
+import {ReservationArea} from "../entities/reservation-area";
+import { Reservation } from '../entities/reservation';
 
 interface Request {
     date: Date
@@ -9,6 +10,8 @@ interface Request {
     area: ReservationArea,
     firstName: string
     lastName: string
+    sort: ReservationSort
 }
-
+export type ReservationSort = `-${ReservationKeys}` | ReservationKeys
+export type ReservationKeys = keyof Omit<Reservation, "customer"> | "firstName" | "lastName"
 export type GetReservationsRequest = Partial<Request>

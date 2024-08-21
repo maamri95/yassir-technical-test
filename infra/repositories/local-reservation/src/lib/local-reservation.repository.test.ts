@@ -21,6 +21,7 @@ describe('Get Reservations', () => {
     container.register(Transformer.name, { useValue: reservationApiToReservationTransformer });
     container.register(DateProvider.name, { useValue: dateProviderMock });
     container.register('LocalReservationData', { useValue: reservationsMock  });
+    container.register('LocalReservationTimeout', { useValue: 50 });
     localReservationRepository = container.resolve(LocalReservationRepository);
   });
     it('should use case exist', () => {
@@ -31,8 +32,8 @@ describe('Get Reservations', () => {
         expect(localReservationRepository.getReservations).toBeDefined();
     });
 
-  it('should call transformer when getReservations called', () => {
-    localReservationRepository.getReservations();
+  it('should call transformer when getReservations called', async () => {
+    await localReservationRepository.getReservations();
     expect(reservationApiToReservationTransformer.transform).toHaveBeenCalled();
   });
 

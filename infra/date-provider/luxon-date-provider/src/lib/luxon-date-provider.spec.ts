@@ -28,4 +28,10 @@ describe('luxonDateProvider', () => {
     end.setDate(end.getDate() + 2);
     expect(luxonDateProvider.between(date, start, end)).toBe(false);
   });
+
+  it('should format date with currect format', () => {
+    const date = new Date();
+    const format = 'yyyy-MM-dd';
+    expect(luxonDateProvider.format(date, format)).toBe(date.toISOString().split('T')[0]);
+  });
 });

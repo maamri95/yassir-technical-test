@@ -1,4 +1,4 @@
-import {ReservationApiDto} from "./reservation-api.dto.ts";
+import {ReservationApiDto} from "./reservation-api.dto";
 
 export interface ReservationsResponseApiDto {
     reservations: ReservationApiDto[]

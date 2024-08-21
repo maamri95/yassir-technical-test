@@ -1,7 +1,7 @@
-import {ReservationCustomerApiDto} from "./reservation-customer-api.dto.ts";
-import {ReservationStatusApi} from "./reservation-status-api.ts";
-import {ReservationShiftApi} from "./reservation-shift-api.ts";
-import {ReservationAreaApi} from "./reservation-area-api.ts";
+import {ReservationCustomerApiDto} from "./reservation-customer-api.dto";
+import {ReservationStatusApi} from "./reservation-status-api";
+import {ReservationShiftApi} from "./reservation-shift-api";
+import {ReservationAreaApi} from "./reservation-area-api";
 
 export interface ReservationApiDto {
     id: number

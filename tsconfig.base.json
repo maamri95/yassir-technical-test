@@ -16,15 +16,15 @@
     "baseUrl": ".",
     "paths": {
       "@yassir-test/date-provider": ["contracts/date-provider/src/index.ts"],
-      "@yassir-test/luxon-date-provider": [
-        "infra/date-provider/luxon-date-provider/src/index.ts"
-      ],
-      "@yassir-test/transformer": ["contracts/transformer/src/index.ts"],
-      "@yassir-test/use-case": ["contracts/use-case/src/index.ts"],
       "@yassir-test/local-reservation": [
         "infra/repositories/local-reservation/src/index.ts"
       ],
-      "@yassir-test/reservation": ["domain/reservation/src/index.ts"]
+      "@yassir-test/luxon-date-provider": [
+        "infra/date-provider/luxon-date-provider/src/index.ts"
+      ],
+      "@yassir-test/reservation": ["domain/reservation/src/index.ts"],
+      "@yassir-test/transformer": ["contracts/transformer/src/index.ts"],
+      "@yassir-test/use-case": ["contracts/use-case/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

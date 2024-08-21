@@ -1,3 +1,3 @@
-import {Reservation} from "../entities/reservation.ts";
+import {Reservation} from "../entities/reservation";
 
 export type GetReservationsResponse = Reservation[]
