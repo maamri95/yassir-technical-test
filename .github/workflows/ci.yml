@@ -93,15 +93,17 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
       - uses: actions/setup-node@v4
         with:
           node-version: 20
       - run: pnpm install
       - run: pnpm nx affected --target=build
-      - run: pnpm nx affected --target=deploy
 
       - name: Deploy to Netlify
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        run: npx netlify deploy --prod --dir=./dist/apps/your-app
+        run: npx netlify deploy --prod --dir=./dist/applications/reservation-dashboard
