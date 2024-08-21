@@ -100,7 +100,7 @@ jobs:
         with:
           node-version: 20
       - run: pnpm install
-      - run: pnpm nx affected --target=build
+      - run: pnpm nx run reservation-dashboard:build
 
       - name: Deploy to Netlify
         env:
