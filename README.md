@@ -83,3 +83,4 @@ I chose [Tailwind CSS](https://tailwindcss.com/) for styling the project,[Shadcn
 - Enhance the project’s styling.
 - Improve the project’s tests.
 - Add Storybook to the project.
+- Improve pipeline for metrics
