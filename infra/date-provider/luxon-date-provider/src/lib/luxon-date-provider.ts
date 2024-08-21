@@ -3,12 +3,8 @@ import {DateTime} from "luxon";
 import { injectable } from 'tsyringe';
 @injectable()
 export class LuxonDateProvider extends DateProvider {
-    between(date: Date, start: Date, end?: Date): boolean {
-        const dateInDateTime = DateTime.fromJSDate(date);
-        if (!end) {
-            return dateInDateTime >= DateTime.fromJSDate(start);
-        }
-        return dateInDateTime >= DateTime.fromJSDate(start) && dateInDateTime <= DateTime.fromJSDate(end);
+    isSameDay(currentDate: Date, expectedDate:Date): boolean {
+        return DateTime.fromJSDate(currentDate).hasSame(DateTime.fromJSDate(expectedDate), 'day');
     }
 
     format(date: Date, format: string): string {

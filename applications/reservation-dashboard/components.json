@@ -4,14 +4,14 @@
   "rsc": false,
   "tsx": true,
   "tailwind": {
-    "config": "applications/reservation-dashboard/src/tailwind.config.js",
-    "css": "applications/reservation-dashboard/src/styles.css",
+    "config": "tailwind.config.js",
+    "css": "src/styles.css",
     "baseColor": "slate",
     "cssVariables": true,
     "prefix": ""
   },
   "aliases": {
-    "components": "applications/reservation-dashboard/src/components",
-    "utils": "applications/reservation-dashboard/src/lib/utils"
+    "components": "src/components",
+    "utils": "src/lib/utils"
   }
 }

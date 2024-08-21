@@ -2,6 +2,7 @@ import "reflect-metadata";
 import { beforeAll, describe } from 'vitest';
 import { container } from 'tsyringe';
 import { ReservationApiToReservationTransformer } from './reservation-api-to-reservation.transformer';
+import { ReservationApiDto } from '../dto/reservation-api.dto';
 
 describe("ReservationApiToReservationTransformer", () => {
     let reservationApiToReservationTransformer: ReservationApiToReservationTransformer;
@@ -15,7 +16,7 @@ describe("ReservationApiToReservationTransformer", () => {
 
     it('should transform correctly data', () => {
         // Given
-        const data = {
+        const data: ReservationApiDto = {
             id: 1,
             businessDate: "06.08.2018",
             status: "CHECKED OUT",

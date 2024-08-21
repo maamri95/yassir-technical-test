@@ -52,7 +52,7 @@ export class LocalReservationRepository extends ReservationRepository{
     }
 
     private filterByDate(reservations: Reservation[], date: Date): Reservation[] {
-        return reservations.filter(reservation => this.dateProvider.between(date, reservation.start, reservation.end));
+        return reservations.filter(reservation => this.dateProvider.isSameDay(date, reservation.start));
     }
 
     private filterByStatus(reservations: Reservation[], status: string): Reservation[] {
@@ -68,10 +68,24 @@ export class LocalReservationRepository extends ReservationRepository{
     }
 
     private filterByFirstName(reservations: Reservation[], firstName=""): Reservation[] {
-        return reservations.filter(reservation => reservation.customer.firstName.includes(firstName));
+        return reservations.filter(reservation => reservation
+          .customer
+          .firstName
+          .trim()
+          .toLowerCase()
+          .includes(firstName.trim().toLowerCase())
+        );
     }
     private filterByLastName(reservations: Reservation[], lastName=""): Reservation[] {
-        return reservations.filter(reservation => reservation.customer.lastName.includes(lastName));
+        return reservations.filter(reservation => reservation
+          .customer
+          .lastName
+          .trim()
+          .toLowerCase()
+          .includes(lastName
+            .trim()
+            .toLowerCase()
+          ));
     }
 
     private sortReservations(response: Reservation[], sort: ReservationSort) {

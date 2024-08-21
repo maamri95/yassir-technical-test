@@ -16,9 +16,10 @@ describe('Get Reservations', () => {
       transform: vi.fn(),
     };
     dateProviderMock = {
-      between: vi.fn(),
+      isSameDay: vi.fn(),
+      format: vi.fn(),
     };
-    container.register(Transformer.name, { useValue: reservationApiToReservationTransformer });
+    container.register(ReservationApiToReservationTransformer.name, { useValue: reservationApiToReservationTransformer });
     container.register(DateProvider.name, { useValue: dateProviderMock });
     container.register('LocalReservationData', { useValue: reservationsMock  });
     container.register('LocalReservationTimeout', { useValue: 50 });
@@ -45,19 +46,17 @@ describe('Get Reservations', () => {
 
   it("shouldn't call DateProvider if date option not provided", () => {
     localReservationRepository.getReservations();
-    expect(dateProviderMock.between).not.toHaveBeenCalled();
+    expect(dateProviderMock.isSameDay).not.toHaveBeenCalled();
   });
   describe('Filtering', () => {
     beforeEach(() => {
-      container.register(Transformer.name, ReservationApiToReservationTransformer);
+      container.register(ReservationApiToReservationTransformer.name, ReservationApiToReservationTransformer);
       localReservationRepository = container.resolve(LocalReservationRepository);
     });
 
     it('should call DateProvider if date option provided', async () => {
-      container.register(Transformer.name, ReservationApiToReservationTransformer);
-      localReservationRepository = container.resolve(LocalReservationRepository);
       await localReservationRepository.getReservations({ date: new Date() });
-      expect(dateProviderMock.between).toHaveBeenCalled();
+      expect(dateProviderMock.isSameDay).toHaveBeenCalled();
     });
   });
 });

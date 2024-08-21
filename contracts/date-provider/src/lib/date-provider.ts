@@ -1,4 +1,4 @@
 export abstract class DateProvider {
-  abstract between(date: Date, start: Date, end?: Date): boolean;
+  abstract isSameDay(currentDate: Date, expectedDate: Date): boolean;
   abstract format(date: Date, format: string): string;
 }

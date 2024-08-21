@@ -12,21 +12,21 @@ describe('luxonDateProvider', () => {
     expect(luxonDateProvider).toBeDefined();
   });
 
-  it('should return true when date is between start and end', () => {
+  it('should return true when date is same day of start', () => {
     const date = new Date();
     const start = new Date();
     const end = new Date();
     end.setDate(end.getDate() + 1);
-    expect(luxonDateProvider.between(date, start, end)).toBe(true);
+    expect(luxonDateProvider.isSameDay(date, start)).toBe(true);
   });
 
-  it('should return false when date is not between start and end', () => {
+  it('should return false when date is not same day of start', () => {
     const date = new Date();
     const start = new Date();
     const end = new Date();
     start.setDate(start.getDate() + 1);
     end.setDate(end.getDate() + 2);
-    expect(luxonDateProvider.between(date, start, end)).toBe(false);
+    expect(luxonDateProvider.isSameDay(date, start)).toBe(false);
   });
 
   it('should format date with currect format', () => {

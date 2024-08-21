@@ -1,13 +1,5 @@
 import { ColumnDef } from '@tanstack/react-table';
 import { Skeleton } from '../skeleton';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "../table"
 interface DataTableSkeletonProps<TData> {
   columns: ColumnDef<TData>[];
 }
