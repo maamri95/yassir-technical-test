@@ -86,7 +86,7 @@ I chose [Tailwind CSS](https://tailwindcss.com/) for styling the project,[Shadcn
 - Enhance the project’s styling.
 - Improve the project’s tests.
 - Add Storybook to the project.
-- add i18n to the project.
-- manage the error state.
-- manage responsive design.
-- Improve pipeline for metrics.
+- Add i18n to the project.
+- Manage the error state.
+- Manage responsive design.
+- Improve the CI/CD pipeline for metrics.
